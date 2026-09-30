@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta y Rosa</title>
+    <!-- Opción para cargar la fuente de la carta -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+       <div class="letter">
+   <p class="linea">Ha pasado ya un tiempo desde que te conocí.</p>
+<p class="linea">No he sido la mejor persona que digamos,</p>
+<p class="linea">pero tampoco he sido la peor.</p>
+<p class="linea">Cometí errores, pero mi propósito sigue siendo el mismo:</p>
+<p class="linea">siempre he tratado de hacerte reír,</p>
+<p class="linea">ya que tu sonrisa es lo único que está bien en este mundo.</p>
+<p class="linea">Sonará raro, lo sé, pero no me importa.</p>
+<p class="linea">Siempre intento decir algo o hacer algo estúpido para hacerte reír,</p>
+<p class="linea">aunque no sé si en verdad te estés riendo del otro lado</p>
+<p class="linea">de la pantalla, pero aun así lo hago.</p>
+<p class="linea">Me da envidia esa gente que sí logra verte sonreír en persona,</p>
+<p class="linea">ya que yo no puedo; pero aun así me alegra imaginar que sonríes.</p>
+<p class="linea">Quizás diciendo esto te sientas rara, pero...</p>
+<p class="linea">Me encanta tu sonrisa y la forma que toman tus ojos. Te quiero, enana.</p>
+
+</div>
+
+        <div class="rose">
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+            <div class="leaf">
+                <div class="stem"></div>
+                <div class="leafs"></div>
+                <div class="leafs"></div>
+            </div>
+        </div>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const h1 = document.querySelector('h1');
+    const texto = h1.innerHTML; // Guarda el texto original
+    h1.innerHTML = ''; // Vacía el contenedor para empezar la animación
+    h1.classList.add('typing-effect'); // Añade el cursor
+
+    let i = 0;
+    const velocidad = 50; // Velocidad en milisegundos por letra (bájalo para ir más rápido)
+
+    function escribir() {
+        if (i < texto.length) {
+            h1.innerHTML += texto.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+        } else {
+            // Opcional: quita el cursor cuando termine de escribir
+            setTimeout(() => h1.style.borderRight = 'none', 2000);
+        }
+    }
+
+    escribir();
+});
+</script>
+
+</body>
+</html>

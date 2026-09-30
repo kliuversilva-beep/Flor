@@ -1,0 +1,238 @@
+body {
+    background: #ffd1dc; 
+}
+
+.container {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo base para cada línea del texto (Computadora) */
+.linea {
+    font-family: 'Georgia', serif; /* Puedes cambiarla por la fuente que prefieras */
+    font-size: 18px;
+    color: black;
+    margin: 8px 0;
+    text-align: left; /* Alinea todo ordenadamente a la izquierda */
+    
+    /* Configuración de la animación de máquina de escribir */
+    display: block; /* Forzar a que cada frase sea un renglón independiente */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Empieza oculto */
+    animation: escribir 2s steps(40) forwards;
+}
+
+/* Animación de máquina de escribir limpia (sin líneas ni cursores) */
+@keyframes escribir {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%; 
+    }
+}
+
+/* Tiempos de retraso para que aparezcan EN ORDEN secuencial */
+.linea:nth-child(1)  { animation-delay: 0s; }
+.linea:nth-child(2)  { animation-delay: 2s; }
+.linea:nth-child(3)  { animation-delay: 4s; }
+.linea:nth-child(4)  { animation-delay: 6s; }
+.linea:nth-child(5)  { animation-delay: 8s; }
+.linea:nth-child(6)  { animation-delay: 10s; }
+.linea:nth-child(7)  { animation-delay: 12s; }
+.linea:nth-child(8)  { animation-delay: 14s; }
+.linea:nth-child(9)  { animation-delay: 16s; }
+.linea:nth-child(10) { animation-delay: 18s; }
+.linea:nth-child(11) { animation-delay: 20s; }
+.linea:nth-child(12) { animation-delay: 22s; }
+.linea:nth-child(13) { animation-delay: 24s; }
+.linea:nth-child(14) { animation-delay: 26s; }
+
+.letter {
+    width: 600px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.rose {
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    animation: yidon 5s infinite;
+    transform: translateY(40%);
+}
+
+.petal {
+    width: 50px;
+    height: 50px;
+    background: #e63946; /* Pétalos rojos */
+    border-radius: 0px 50%;
+    position: absolute;
+    box-shadow: 0 0 10px #D1123F;
+    z-index: 2;
+    transform-origin: bottom right;
+    animation: zhankai2 10s infinite;
+}
+
+.petal:nth-child(2) {
+    transform-origin: right bottom;
+    transform: rotate(90deg);
+    background: #e63946; /* Pétalos rojos */
+    left: -10px;
+    animation: zhankai1 10s infinite;
+}
+
+.petal:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    left: 10px;
+    top: -20px;
+    z-index: 1;
+    background: #e63946; /* Pétalos rojos */
+    transform-origin: bottom right;
+    animation: zhankai2 10s infinite;
+}
+
+.petal:nth-child(4) {
+    transform: rotate(90deg);
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: -20px;
+    z-index: 1;
+    background: #e63946; /* Pétalos rojos */
+    transform-origin: bottom right;
+    animation: zhankai1 10s infinite;
+}
+
+.petal:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    left: 20px;
+    top: -30px;
+    z-index: 0;
+    background: #e63946; /* Pétalos rojos */
+}
+
+.leaf {
+    position: absolute;
+    top: 120px;
+    left: -115px;
+}
+
+.stem {
+    width: 240px;
+    height: 40px;
+    background: transparent;
+    border: 8px solid #8ac78a;
+    border-color: #77a377 transparent transparent transparent;
+    border-radius: 50% 50%;
+    transform: rotate(100deg);
+}
+
+.leafs {
+    width: 50px;
+    height: 40px;
+    border-radius: 0px 50%;
+    background: #77a377;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    z-index: 49;
+}
+
+.leafs:nth-child(2) {
+    width: 40px;
+    height: 20px;
+    top: 40px;
+    left: 140px;
+    transform: rotate(120deg);
+}
+
+/* Animaciones de la Rosa (Computadora) */
+@keyframes yidon {
+    50% {
+        transform: translateY(35%);
+    }
+    100% {
+        transform: translateY(40%);
+    }
+}
+
+@keyframes zhankai1 {
+    50% {
+        transform: rotate(110deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes zhankai2 {
+    50% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* =========================================
+   --- ESTILOS ADAPTATIVOS PARA TELÉFONOS ---
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Ocupa casi todo el ancho de la pantalla del celular */
+        height: auto; /* Se adapta al contenido verticalmente */
+        position: relative; 
+        top: 0;
+        left: 0;
+        transform: none;
+        margin: 40px auto; /* Centra el bloque entero en la pantalla */
+        display: flex;
+        flex-direction: column; /* Coloca el texto arriba y la rosa abajo */
+        align-items: center;
+        gap: 30px; /* Separación prudente entre el poema y la rosa */
+    }
+
+    .letter {
+        width: 100%; /* El texto aprovecha todo el espacio horizontal del móvil */
+        height: auto;
+    }
+
+    .linea {
+        font-size: 16px; /* Letra sutilmente más pequeña para evitar desbordes */
+        white-space: normal; /* Permite saltos de línea automáticos si el teléfono es muy angosto */
+        width: 100%; 
+        animation: escribir-movil 1.5s ease forwards; /* Animación de aparición fluida adaptada */
+    }
+
+    /* En celulares, la animación de ancho dinámico puede romper la lectura, 
+       por lo que una transición de opacidad y desplazamiento ascendente es ideal */
+    @keyframes escribir-movil {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rose {
+        position: relative; /* Quita el comportamiento absoluto para fluir abajo del texto */
+        right: auto;
+        transform: scale(0.9); /* Escala la rosa ligeramente para pantallas compactas */
+        animation: yidon-movil 5s infinite;
+    }
+}
+
+/* Ajuste de animación sutil para la rosa en teléfonos */
+@keyframes yidon-movil {
+    50% { transform: scale(0.9) translateY(-10px); }
+    100% { transform: scale(0.9) translateY(0); }
+}
